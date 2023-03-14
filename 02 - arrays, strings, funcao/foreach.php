@@ -1,6 +1,5 @@
 <?php
 
-
 $conta1 = [
     "nome" => "Jeff",
     "Saldo" => 1500
@@ -11,14 +10,10 @@ $conta2 = [
     "Saldo" => 1000
 ];
 
-
-
-
 $contasCorrentes = [
     1234 => $conta1,
     4321 => $conta2
 ];
-
 
 
 foreach($contasCorrentes as $conta){
