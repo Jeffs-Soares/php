@@ -1,18 +1,15 @@
 <?php
 
-$conta1 = [
-    "nome" => "Jeff",
-    "saldo" => 1500
-];
-
-$conta2 = [
-    "nome" => "Mari",
-    "saldo" => 1000
-];
 
 $contasCorrentes = [
-    1234 => $conta1,
-    4321 => $conta2
+    1234 => [
+        "nome" => "Jeff",
+        "saldo" => 1500
+    ],
+    4321 => [
+        "nome" => "Mari",
+        "saldo" => 1000
+    ]
 ];
 
 
