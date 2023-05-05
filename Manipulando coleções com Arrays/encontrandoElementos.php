@@ -16,3 +16,5 @@ $notas = [
 //array_search busca a chave que possui o valor informado
 
 echo array_search(10, $notas);
+
+
