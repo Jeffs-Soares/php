@@ -1,12 +1,14 @@
 <?php
 
-$arr = [200];
+$arr = [21];
 
-for($i=0; $i < 100; $i++){
+array_push($arr, 888, 9999);
 
-    $lul = number_format($arr[$i], 4);
+$arr[] = 777;
+$arr[] = 'LUL';
+$arr[] = [1,2,3];
 
-    echo "N[$i] = $lul" . PHP_EOL;
-    $arr[$i + 1] = $arr[$i] / 2 ;
+$arr2 = [...$arr[5]];
 
-}
+
+var_dump($arr2);
