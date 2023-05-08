@@ -2,7 +2,7 @@
 
 $arr = [1,2,3,4,5,6];
 
-array_unshift($arr, 0,-20);
+array_unshift($arr, 0,-20, 77); // Adiciona elementos no início
 
 var_dump($arr);
 
