@@ -3,17 +3,15 @@
 class Conta
 {
 
-    private string $cpfTitular;
-    private string $nomeTitular; // Definir valores direto na instância do objeto não é comum
+    private Titular $titular;// Definir valores direto na instância do objeto não é comum
     private float $saldo;
     private static $numeroDeContas = 0;
     //private static $codigoBanco = 77;
 
-    public function __construct(string $cpf, string $nome){
+    public function __construct(Titular $titular){
 
-        $this -> cpfTitular = $cpf;
-        $this -> validaNomeTitular($nome);
-        $this -> nomeTitular = $nome;
+        $this -> titular = $titular;
+
         $this -> saldo = 0;
         self::$numeroDeContas++;
         
@@ -57,20 +55,15 @@ class Conta
     public function getSaldo():float{
         return $this->saldo;
     }
-    
-    public function getCpf():string{
-        return $this->cpfTitular;
-    }
-
+   
     public function getNome():string{
-        return $this->nomeTitular;
+        return $this -> titular -> getNome();
     }
-    private function validaNomeTitular(string $nome):void{
-        if(strlen($nome) < 4){
-            echo "Nome muito pequeno";
-            exit();
-        }
+   
+    public function getCpfTitular():string{
+        return $this -> titular -> getCpf();
     }
+   
 
     public static function getNumContas():int{
         return self::$numeroDeContas;
