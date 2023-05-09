@@ -3,9 +3,18 @@
 class Conta
 {
 
-    private string $cpfTitular = "";
-    private string $nomeTitular = ""; // Definir valores direto na instância do objeto não é comum
-    private float $saldo = 0;
+    private string $cpfTitular;
+    private string $nomeTitular; // Definir valores direto na instância do objeto não é comum
+    private float $saldo;
+
+    public function __construct(string $cpf, string $nome){
+
+        $this -> cpfTitular = $cpf;
+        $this -> validaNomeTitular($nome);
+        $this -> nomeTitular = $nome;
+        $this -> saldo = 0;
+
+    }
 
     public function sacar(float $valorASacar): void
     {
@@ -48,14 +57,15 @@ class Conta
     public function getCpf():string{
         return $this->cpfTitular;
     }
-    public function setCpf(string $cpf):void{
-        $this->cpfTitular = $cpf;
-    }
 
     public function getNome():string{
         return $this->nomeTitular;
     }
-    public function setNome(string $nome):void{
-        $this->nomeTitular = $nome;
+    private function validaNomeTitular(string $nome):void{
+        if(strlen($nome) < 4){
+            echo "Nome muito pequeno";
+            exit();
+        }
     }
+ 
 }
