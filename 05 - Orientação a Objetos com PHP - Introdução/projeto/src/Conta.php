@@ -6,6 +6,8 @@ class Conta
     private string $cpfTitular;
     private string $nomeTitular; // Definir valores direto na instância do objeto não é comum
     private float $saldo;
+    private static $numeroDeContas = 0;
+    //private static $codigoBanco = 77;
 
     public function __construct(string $cpf, string $nome){
 
@@ -13,6 +15,8 @@ class Conta
         $this -> validaNomeTitular($nome);
         $this -> nomeTitular = $nome;
         $this -> saldo = 0;
+        self::$numeroDeContas++;
+        
 
     }
 
@@ -66,6 +70,10 @@ class Conta
             echo "Nome muito pequeno";
             exit();
         }
+    }
+
+    public static function getNumContas():int{
+        return self::$numeroDeContas;
     }
  
 }

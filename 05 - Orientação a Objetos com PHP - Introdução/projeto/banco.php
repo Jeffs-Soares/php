@@ -8,3 +8,5 @@ $primeiraConta -> sacar(300);
 
 echo $primeiraConta -> getSaldo();
 echo $primeiraConta -> getNome();
+
+echo Conta::getNumContas();
