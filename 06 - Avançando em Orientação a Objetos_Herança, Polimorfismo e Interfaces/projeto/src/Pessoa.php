@@ -3,11 +3,12 @@
 
 class Pessoa
 {
-    public $nome;
-    public $cpf;
+    protected $nome;
+    private $cpf;
 
     public function __construct(string $nome, CPF $cpf)
     {
+        $this -> validaNomeTitular($nome);
         $this->nome = $nome;
         $this->cpf = $cpf;
     }
@@ -22,7 +23,7 @@ class Pessoa
         return $this->cpf->getCpf();
     }
 
-    public function validaNomeTitular(string $nome):void{
+    protected function validaNomeTitular(string $nome):void{
         if(strlen($nome) < 4){
             echo "Nome muito pequeno";
             exit();

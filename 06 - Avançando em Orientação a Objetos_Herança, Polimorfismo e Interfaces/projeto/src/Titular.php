@@ -9,10 +9,9 @@ class Titular extends Pessoa {
 
     public function __construct(CPF $cpf, string $nome, Endereco $endereco){
 
-        $this -> cpf = $cpf;
-        $this -> validaNomeTitular($nome);
-        $this -> nome = $nome;
+        parent::__construct($nome, $cpf);
         $this -> endereco = $endereco;
+        
     }
    
     public function getEndereco(): Endereco{
