@@ -1,6 +1,6 @@
 <?php
 
-require_once "Pessoa.php";
+require_once "../Endereco.php";
 
 class Titular extends Pessoa {
 

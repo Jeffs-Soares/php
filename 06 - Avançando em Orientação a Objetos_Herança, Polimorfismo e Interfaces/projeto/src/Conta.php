@@ -1,6 +1,7 @@
 <?php
 
-class Conta
+
+abstract class Conta
 {
 
     private Titular $titular;// Definir valores direto na instância do objeto não é comum
@@ -68,5 +69,7 @@ class Conta
     public static function getNumContas():int{
         return self::$numeroDeContas;
     }
+
+    abstract protected function showMessage(string $msg):void;
  
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 class Endereco {
     private string $cidade;
     private string $bairro;
