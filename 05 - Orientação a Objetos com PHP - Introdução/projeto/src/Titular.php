@@ -1,6 +1,5 @@
 <?php
 
-
 class Titular{
     private CPF $cpf;
     private string $nome;
