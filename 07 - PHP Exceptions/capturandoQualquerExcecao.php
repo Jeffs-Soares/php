@@ -5,7 +5,10 @@ function funcao1()
     echo 'Entrei na função 1' . PHP_EOL;
     try {
         funcao2();
-    } catch (RuntimeException | DivisionByZeroError  $error) {
+    } catch (Exception | Error $error) {
+
+        //catch (Exception | Error $error) or catch( Throwable $error)
+        // O ideal por boas práticas é especificar qual exatamente
         echo $error -> getMessage() . PHP_EOL;
         echo $error -> getLine() . PHP_EOL;
         //echo $error -> getFile() . PHP_EOL;
@@ -26,3 +29,5 @@ function funcao2()
 echo 'Iniciando o programa principal' . PHP_EOL;
 funcao1();
 echo 'Finalizando o programa principal' . PHP_EOL;
+
+
