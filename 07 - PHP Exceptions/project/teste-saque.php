@@ -1,7 +1,7 @@
 <?php
 
 use Alura\Banco\Modelo\Conta\{ContaPoupanca, ContaCorrente, Titular};
-use Alura\Banco\Modelo\{CPF, Endereco};
+use Alura\Banco\Modelo\{CPF, Endereco, Pessoa};
 
 require_once 'autoload.php';
 
@@ -12,7 +12,8 @@ $conta = new ContaPoupanca(
         new Endereco('Petrópolis', 'bairro Teste', 'Rua lá', '37')
     )
 );
-$conta->deposita(500);
-$conta->saca(100);
 
-echo $conta->recuperaSaldo();
+//$conta->deposita(500);
+//$conta->saca(100);
+
+//echo $conta->recuperaSaldo();
