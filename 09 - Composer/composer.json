@@ -1,0 +1,17 @@
+{
+    "name": "jeffs/buscador-cursos",
+    "description": "Buscador de cursos",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Jeffs\\BuscadorCursos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jefferson Soares",
+            "email": "soares.jeffersonthadeu@gmail.com"
+        }
+    ],
+    "require": {}
+}
