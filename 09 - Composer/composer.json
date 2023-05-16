@@ -13,5 +13,9 @@
             "email": "soares.jeffersonthadeu@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.6",
+        "symfony/dom-crawler": "^6.2",
+        "symfony/css-selector": "^6.2"
+    }
 }
