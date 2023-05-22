@@ -2,9 +2,15 @@
 
 require_once './conn.php';
 
-$especificData = $pdo -> query("SELECT * FROM students WHERE id = 1");
+$especificData = $pdo -> query("SELECT * FROM students;");
+//$especificData = $pdo -> query("SELECT * FROM students WHERE id = 1;");
 
-$data = $especificData -> fetch(PDO::FETCH_ASSOC);
+while($data = $especificData -> fetch(PDO::FETCH_ASSOC)){
 
-print_r($data['name']);
+    echo $data['name'] . PHP_EOL;
+
+}
+
+
+//print_r($data['name']);
 
