@@ -9,7 +9,7 @@ $senha = "root";
 try{
 
     $pdo = new PDO("pgsql:host=$endereco;port=5432;dbname=$banco", $usuario, $senha, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-    echo "Conectando no banco de dados!!!";
+    echo "Conectando no banco de dados!!!" . PHP_EOL;
 
 } catch (PDOException $e){
 
