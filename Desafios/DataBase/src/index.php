@@ -13,4 +13,6 @@ $conection = new DatabaseConnection("localhost", "5432", "ecidade", "postgres", 
 
 $conection -> connect();
 
-$conection -> disconnect();
+var_dump($conection);
+
+//$conection -> disconnect();
