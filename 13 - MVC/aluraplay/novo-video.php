@@ -6,15 +6,20 @@ $connection = new DataBaseConnection("localhost","5432", "alura","postgres","roo
 
 $connection -> connect();
 
+/* $url = $_POST['rul'];
+$titulo = $_POST['titulo'];
+
 
 $sql = "INSERT INTO videos (url, title) VALUES (?, ?)";
 
 $statement = $connection-> pdo -> prepare($sql);
 
-$statement -> bindValue(1, $_POST['url']);
-$statement -> bindValue(2, $_POST['titulo']);
+$statement -> bindValue(1, $url);
+$statement -> bindValue(2, $titulo);
 
- var_dump($statement -> execute());
+ var_dump($statement -> execute()); */
+ 
+ 
 
 
 
