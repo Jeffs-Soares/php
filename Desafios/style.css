@@ -1,0 +1,10 @@
+@tailwind components;
+
+
+
+@layer components{
+
+    .lul{
+        @apply 
+    }
+}
