@@ -16,10 +16,10 @@ class DataBaseConnection
             $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname}";
             $this->pdo = new PDO($dsn, $this->user, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected to the PostgreSQL database successfully!" . PHP_EOL;
+            //echo "Connected to the PostgreSQL database successfully!" . PHP_EOL;
 
         } catch (PDOException $e) {
-            echo "Failed to connect the PostgreSQL database!";
+           // echo "Failed to connect the PostgreSQL database!";
             die($e->getMessage());
         }
     }
