@@ -19,13 +19,9 @@ if($id !== false){
    $statment -> execute();
    $video = $statment->fetch(\PDO::FETCH_ASSOC);
 
-
 }
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
