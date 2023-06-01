@@ -6,8 +6,6 @@ $connection->connect();
 
 $videoList = $connection->pdo->query("SELECT * FROM videos;")->fetchAll(\PDO::FETCH_ASSOC);
 
-var_dump($videoList);
-
 ?>
 
 
