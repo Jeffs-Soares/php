@@ -63,7 +63,7 @@ if($id !== false){
 
         <form
         class="container__formulario"
-        action=" <?php  $id !== false ? "/editar-video.php?id=" . $id : "/novo-video.php" ?> "
+        action=" <?php echo $id !== false ? "/editar-video.php?id=" . $id : "/novo-video.php"; ?> "
         method="post">
         
         <h2 class="formulario__titulo">Envie um vídeo!</h2>
