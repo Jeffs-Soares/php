@@ -13,13 +13,14 @@ class DataBaseConnection
     {
         try {
 
-            $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname}";
-            $this->pdo = new PDO($dsn, $this->user, $this->password);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //echo "Connected to the PostgreSQL database successfully!" . PHP_EOL;
+             $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname}";
+             $this->pdo = new PDO($dsn, $this->user, $this->password);
+             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            // echo "Connected to the PostgreSQL database successfully!" . PHP_EOL;
 
         } catch (PDOException $e) {
-           // echo "Failed to connect the PostgreSQL database!";
+            //echo "Failed to connect the PostgreSQL database!<br>";
             die($e->getMessage());
         }
     }
@@ -34,7 +35,6 @@ class DataBaseConnection
            
         $this->pdo->exec("CREATE TABLE IF NOT EXISTS videos (id SERIAL PRIMARY KEY, url VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL);"); 
 
-         
 
     }
 
