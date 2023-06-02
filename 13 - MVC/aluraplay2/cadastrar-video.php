@@ -1,25 +1,29 @@
-<?php
+<?php 
+
 require_once "./conn.php";
 
-$sql = "INSERT INTO videos (url , title) VALUES (:url, :title);";
+$url = filter_input(INPUT_POST, "url" , FILTER_VALIDATE_URL);
 
-$statment = $conn->prepare($sql);
-
-$url = filter_input(INPUT_POST, $_POST['url'], FILTER_VALIDATE_URL);
-
-if ($url === false) {
+if($url === false){
     header("Location: /index.php?sucesso=0");
 }
 
-$titulo = filter_input(INPUT_POST, $_POST['titulo']);
+$titulo = filter_input(INPUT_POST, "titulo");
 
-$statment->bindValue(":url", $url);
-$statment->bindValue(":title", $titulo);
+$sql = "INSERT INTO videos (url , title) VALUES (?, ?);";
 
-if ($statment->execute() === false) {
+$statment = $conn -> prepare($sql);
 
-    header("Location:/index.php?sucesso=0");
-} else {
+$statment -> bindValue(1, $url);
+$statment -> bindValue(2, $titulo);
 
-    header("Location:/index.php?sucesso=1");
+if($statment -> execute() === false ){
+    header("Location: /index.php?sucesso=0");
+
+}else{
+
+    header("Location: /index.php?sucesso=1");
 }
+
+
+

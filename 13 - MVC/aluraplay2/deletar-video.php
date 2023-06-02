@@ -19,6 +19,9 @@ if($statement -> execute() === false){
     header("Location: /index.php?sucesso=1");
 }
 
+echo "<pre>";
+
+print_r($_GET["id"]);
 
 
 
