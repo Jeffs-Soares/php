@@ -53,7 +53,7 @@ $videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
                 <h3> <?php echo $video["title"]?></h3>
                 <div class="acoes-video">
                     <a href="formulario.php">Editar</a>
-                    <a href="./pages/enviar-video.html">Excluir</a>
+                    <a href="deletar-video.php?id=<?php echo $video['id'];?>">Excluir</a>
                 </div>
             </div>
         </li>
