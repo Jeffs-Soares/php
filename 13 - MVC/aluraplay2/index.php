@@ -32,7 +32,7 @@ $videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
             <a class="logo" href="/"></a>
 
             <div class="cabecalho__icones">
-                <a href="formulario.php" class="cabecalho__videos"></a>
+                <a href="./formulario.php" class="cabecalho__videos"></a>
                 <a href="./pages/login.html" class="cabecalho__sair">Sair</a>
             </div>
         </nav>
@@ -52,8 +52,8 @@ $videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
                 <img src="./img/logo.png" alt="logo canal alura">
                 <h3> <?php echo $video["title"]?></h3>
                 <div class="acoes-video">
-                    <a href="formulario.php">Editar</a>
-                    <a href="deletar-video.php?id=<?php echo $video['id'];?>">Excluir</a>
+                    <a href="/formulario.php?id=<?php echo $video['id']; ?>">Editar</a>
+                    <a href="/deletar-video.php?id=<?php echo $video['id'];?>">Excluir</a>
                 </div>
             </div>
         </li>
