@@ -57,7 +57,7 @@ if($id !== false){
             <a class="logo" href="/"></a>
 
             <div class="cabecalho__icones">
-                <a href="./formulario.php" class="cabecalho__videos"></a>
+                <a href="/cadastrar-video" class="cabecalho__videos"></a>
                 <a href="../pages/login.html" class="cabecalho__sair">Sair</a>
             </div>
         </nav>
@@ -68,11 +68,9 @@ if($id !== false){
 
         <form
             class="container__formulario"
-            action=" <?php echo isset($id) ? "/atualizar-video.php?id=" . $id : "/cadastrar-video.php"; ?> "
             method="post">
 
-            
-            
+
             <h2 class="formulario__titulo">Envie um vídeo!</h3>
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="url">Link embed</label>
