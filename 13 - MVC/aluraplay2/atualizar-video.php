@@ -21,11 +21,6 @@ if($id === false){
     header("Location: /index.php?sucesso=0");
 }
 
-
-//comecei a mensagem dizendo que estamos em guerra, mas eu queria te falar aqui hoje. Essa guerra já tá vencida, pois o cordeiro venceu!
-//O reino de Deus não pode ter a minha cara ou a sua, no Reino de Deus a GLória é 100% de Cristo
-
-
 $statment = $conn -> prepare("UPDATE videos SET url=?, title=? WHERE id=?;");
 
 $statment ->bindValue(1, $url);
@@ -38,6 +33,7 @@ if($statment -> execute() === false){
     
     header("Location: /index.php?sucesso=1");
 }
+
 
 
 
