@@ -2,12 +2,6 @@
 
 declare(strict_types=1);
 
-// echo "<pre>";
-
-// print_r($_SERVER);
-
-// exit();
-
 
 if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
     require_once 'listagem-videos.php';

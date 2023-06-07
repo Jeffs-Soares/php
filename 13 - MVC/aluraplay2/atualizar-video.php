@@ -17,7 +17,7 @@ if($titulo === false){
     header("Location: /?sucesso=0");
 }
 
-if($id === false){
+if($id === false && $id === null){
     header("Location: /?sucesso=0");
 }
 
