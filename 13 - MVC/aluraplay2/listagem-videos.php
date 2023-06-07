@@ -1,6 +1,17 @@
 <?php 
 
-require_once "./conn.php";
+
+$host = "localhost";
+$port = "5432";
+$dbname = "alura";
+$user = "postgres";
+$password = "root";
+
+try {
+    $conn = new \PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+} catch (PDOException $e) {
+    die($e->getMessage());
+}
 
 $sql = "SELECT * FROM videos;";
 
@@ -8,7 +19,7 @@ $videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
 
 ?>
 
-<?php require_once "./inicio-html.php"; ?>
+<?php require_once __DIR__ . "/inicio-html.php"; ?>
 
     <ul class="videos__container" alt="videos alura">
 
@@ -34,4 +45,4 @@ $videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
        
     </ul>
 
-    <?php  require_once "./fim-html.php"; ?>
+    <?php  require_once __DIR__ . "/fim-html.php"; ?>
