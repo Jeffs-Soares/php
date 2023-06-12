@@ -1,4 +1,6 @@
 <?php
+use Alura\Mvc\Entity\Video;
+use Alura\Mvc\Repository\VideoRepository;
 
 $host = "localhost";
 $port = "5432";
@@ -31,13 +33,16 @@ if($id === false && $id === null){
     header("Location: /?sucesso=0");
 }
 
-$statment = $conn -> prepare("UPDATE videos SET url=?, title=? WHERE id=?;");
+$video = new Video($url, $titulo);
+$video->setId($id);
 
-$statment ->bindValue(1, $url);
-$statment ->bindValue(2, $titulo);
-$statment ->bindValue(3, $id, PDO::PARAM_INT);
 
-if($statment -> execute() === false){
+
+$repository = new VideoRepository($conn);
+$repository -> update($video);
+
+
+if($repository->update($video) === false){
     header("Location: /?sucesso=0");
 }else{
     

@@ -1,4 +1,6 @@
 <?php
+use Alura\Mvc\Repository\VideoRepository;
+use Alura\Mvc\Entity\Video;
 
 $host = "localhost";
 $port = "5432";
@@ -23,18 +25,15 @@ if($url === false){
 
 $titulo = filter_input(INPUT_POST, "titulo");
 
-$sql = "INSERT INTO videos (url , title) VALUES (?, ?);";
 
-$statment = $conn -> prepare($sql);
+$repository = new VideoRepository($conn);
 
-$statment -> bindValue(1, $url);
-$statment -> bindValue(2, $titulo);
+$repository -> add(new Video($url, $titulo));
 
-if($statment -> execute() === false ){
+
+if($repository->add(new Video($url, $titulo)) === false ){
     header("Location: /?sucesso=0");
-
 }else{
-
     header("Location: /?sucesso=1");
 }
 

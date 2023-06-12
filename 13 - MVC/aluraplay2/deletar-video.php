@@ -1,4 +1,5 @@
 <?php
+use Alura\Mvc\Repository\VideoRepository;
 
 $host = "localhost";
 $port = "5432";
@@ -14,16 +15,10 @@ try {
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM videos WHERE id=?;";
+$repository = new VideoRepository($conn);
 
 
-$statement = $conn -> prepare($sql);
-
-
-$statement ->bindValue(1, $id);
-
-
-if($statement -> execute() === false){
+if($repository->remove($id) === false){
     header("Location: /?sucesso=0");
 }else{
     header("Location: /?sucesso=1");

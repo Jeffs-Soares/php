@@ -1,4 +1,5 @@
 <?php 
+use Alura\Mvc\Repository\VideoRepository;
 
 
 $host = "localhost";
@@ -13,9 +14,11 @@ try {
     die($e->getMessage());
 }
 
-$sql = "SELECT * FROM videos;";
+$repository = new VideoRepository($conn);
+$videoList = $repository ->all();
 
-$videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
+
+
 
 ?>
 
@@ -26,16 +29,16 @@ $videoList = $conn -> query($sql) ->fetchAll(\PDO::FETCH_ASSOC);
     <?php    foreach($videoList as $video){ ?>
 
         <li class="videos__item">
-            <iframe width="100%" height="72%" src="<?php echo $video["url"];?>"
+            <iframe width="100%" height="72%" src="<?php echo $video->url;?>"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
             <div class="descricao-video">
                 <img src="./img/logo.png" alt="logo canal alura">
-                <h3> <?php echo $video["title"]?></h3>
+                <h3> <?php echo $video->title?></h3>
                 <div class="acoes-video">
-                    <a href="/atualizar-video?id=<?php echo $video['id']; ?>">Editar</a>
-                    <a href="/deletar-video?id=<?php echo $video['id'];?>">Excluir</a>
+                    <a href="/atualizar-video?id=<?php echo $video->id; ?>">Editar</a>
+                    <a href="/deletar-video?id=<?php echo $video->id;?>">Excluir</a>
                 </div>
             </div>
         </li>
