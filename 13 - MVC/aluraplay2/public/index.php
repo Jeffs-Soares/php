@@ -1,11 +1,27 @@
 <?php
+use Alura\Mvc\Controller\VideoListController;
+
 
 //declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+
+
+
+
+
+
+
+
+
+
+
 if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
-     require_once __DIR__ . '/../listagem-videos.php';
+
+     $controller = new VideoListController();
+     $controller ->processaRequisicao();
+     
 } elseif ($_SERVER['PATH_INFO'] === '/cadastrar-video') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
          require_once __DIR__ . '/../formulario.php';
