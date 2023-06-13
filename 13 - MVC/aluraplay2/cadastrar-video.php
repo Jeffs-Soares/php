@@ -16,7 +16,6 @@ try {
 
 
 
-
 $url = filter_input(INPUT_POST, "url" , FILTER_VALIDATE_URL);
 
 if($url === false){
@@ -25,11 +24,7 @@ if($url === false){
 
 $titulo = filter_input(INPUT_POST, "titulo");
 
-
 $repository = new VideoRepository($conn);
-
-$repository -> add(new Video($url, $titulo));
-
 
 if($repository->add(new Video($url, $titulo)) === false ){
     header("Location: /?sucesso=0");

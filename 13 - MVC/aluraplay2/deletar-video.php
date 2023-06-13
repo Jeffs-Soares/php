@@ -23,10 +23,3 @@ if($repository->remove($id) === false){
 }else{
     header("Location: /?sucesso=1");
 }
-
-echo "<pre>";
-
-print_r($_GET["id"]);
-
-
-
