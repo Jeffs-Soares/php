@@ -27,43 +27,21 @@ try {
 
 $videoRepository = new VideoRepository($pdo);
 
+$routes = require_once __DIR__ . '/../config/routes.php';
 
-if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
+$pathInfo = $_SERVER['PATH_INFO'] ?? '/';
+$httpMethod =  $_SERVER['REQUEST_METHOD'];
 
-     $controller = new VideoListController($videoRepository);
-     $controller->processaRequisicao();
+$key = "$httpMethod|$pathInfo";
 
-} elseif ($_SERVER['PATH_INFO'] === '/cadastrar-video') {
-     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if(array_key_exists($key, $routes)){
 
-          $controller = new VideoFormController($videoRepository);
-          $controller->processaRequisicao();
-
-
-     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-          $controller = new NewVideoController($videoRepository);
-          $controller->processaRequisicao();
-
-     }
-} elseif ($_SERVER['PATH_INFO'] === '/atualizar-video') {
-     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
-          $controller = new VideoFormController($videoRepository);
-          $controller->processaRequisicao();
-
-     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-          $controller = new EditVideoController($videoRepository);
-          $controller->processaRequisicao();
-
-
-     }
-} elseif ($_SERVER['PATH_INFO'] === '/deletar-video') {
-     $controller = new DeleteVideoController($videoRepository);
-     $controller->processaRequisicao();
-} else{
+     $controllerClass = $routes["$httpMethod|$pathInfo"];
+     $controller = new $controllerClass($videoRepository);
+     
+}else{
      $controller = new Error404Controller();
-}
+};
+
 
 $controller -> processaRequisicao();
