@@ -1,4 +1,10 @@
 <?php
+
+use Alura\Mvc\Controller\DeleteVideoController;
+use Alura\Mvc\Controller\EditVideoController;
+use Alura\Mvc\Controller\Error404Controller;
+use Alura\Mvc\Controller\NewVideoController;
+use Alura\Mvc\Controller\VideoFormController;
 use Alura\Mvc\Controller\VideoListController;
 use Alura\Mvc\Repository\VideoRepository;
 
@@ -29,18 +35,35 @@ if (!array_key_exists('PATH_INFO', $_SERVER) || $_SERVER['PATH_INFO'] === '/') {
 
 } elseif ($_SERVER['PATH_INFO'] === '/cadastrar-video') {
      if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-          require_once __DIR__ . '/../formulario.php';
+
+          $controller = new VideoFormController($videoRepository);
+          $controller->processaRequisicao();
+
+
      } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          require_once __DIR__ . '/../cadastrar-video.php';
+
+          $controller = new NewVideoController($videoRepository);
+          $controller->processaRequisicao();
+
      }
 } elseif ($_SERVER['PATH_INFO'] === '/atualizar-video') {
      if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-          require_once __DIR__ . '/../formulario.php';
+
+          $controller = new VideoFormController($videoRepository);
+          $controller->processaRequisicao();
+
      } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          require_once __DIR__ . '/../atualizar-video.php';
+
+          $controller = new EditVideoController($videoRepository);
+          $controller->processaRequisicao();
+
+
      }
 } elseif ($_SERVER['PATH_INFO'] === '/deletar-video') {
-     require_once __DIR__ . '/../deletar-video.php';
+     $controller = new DeleteVideoController($videoRepository);
+     $controller->processaRequisicao();
+} else{
+     $controller = new Error404Controller();
 }
 
-
+$controller -> processaRequisicao();

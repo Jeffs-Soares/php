@@ -1,50 +1,29 @@
 <?php
 
-$host = "localhost";
-$port = "5432";
-$dbname = "alura";
-$user = "postgres";
-$password = "root";
+declare(strict_types=1);
 
-try {
-    $conn = new \PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-} catch (PDOException $e) {
-    die($e->getMessage());
-}
+namespace Alura\Mvc\Controller;
 
+use Alura\Mvc\Entity\Video;
+use Alura\Mvc\Repository\VideoRepository;
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+class VideoFormController implements Controller
+{
+    public function __construct(private VideoRepository $repository)
+    {
+    }
 
-$video = [
-    'url' => '',
-    'title' => ''
-];
-
-
-
-
-if($id !== false && $id !== null){
-
-    $sql = "SELECT * FROM videos WHERE id=?;";
+    public function processaRequisicao(): void
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     
-    $statement = $conn -> prepare($sql);
-    
-    $statement ->bindValue(1, $id, PDO::PARAM_INT);
-    $statement -> execute();
-    $video = $statement -> fetch(\PDO::FETCH_ASSOC);
-}
+        $video = null;
+        if ($id !== false && $id !== null) {
+            $video = $this->repository->find($id);
+        }
 
-
-// echo "<pre>";
-// print_r($id);
-// exit();
-
-?>
-
-<<?php  require_once __DIR__ . "/inicio-html.php"; ?>
-
-
-    <main class="container">
+        require_once __DIR__ . "/../../inicio-html.php"; ?>
+        <main class="container">
 
         <form
             class="container__formulario"
@@ -55,7 +34,7 @@ if($id !== false && $id !== null){
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="url">Link embed</label>
                     <input
-                    value="<?= $video['url']; ?>"
+                    value="<?= $video?->url; ?>"
                     name="url"
                     class="campo__escrita"
                     required
@@ -67,7 +46,7 @@ if($id !== false && $id !== null){
                 <div class="formulario__campo">
                     <label class="campo__etiqueta" for="titulo">Titulo do vídeo</label>
                     <input
-                    value="<?= $video['title']; ?>"
+                    value="<?= $video?-> title; ?>"
                     name="titulo"
                     class="campo__escrita"
                     required placeholder="Neste campo, dê o nome do vídeo"
@@ -80,5 +59,27 @@ if($id !== false && $id !== null){
 
     </main>
 
-    <?php  require_once __DIR__ . "/fim-html.php"; ?>
+    <?php require_once __DIR__ . "/../../fim-html.php";
 
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
