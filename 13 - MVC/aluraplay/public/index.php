@@ -1,17 +1,14 @@
 <?php
 
-use Alura\Mvc\Controller\DeleteVideoController;
-use Alura\Mvc\Controller\EditVideoController;
 use Alura\Mvc\Controller\Error404Controller;
-use Alura\Mvc\Controller\NewVideoController;
-use Alura\Mvc\Controller\VideoFormController;
-use Alura\Mvc\Controller\VideoListController;
 use Alura\Mvc\Repository\VideoRepository;
 
 //declare(strict_types=1);
 
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+//BD CONNECTION
 
 $host = "localhost";
 $port = "5432";
@@ -24,6 +21,8 @@ try {
 } catch (\PDOException $e) {
      die($e->getMessage());
 }
+
+// End BD CONNECTION 
 
 $videoRepository = new VideoRepository($pdo);
 

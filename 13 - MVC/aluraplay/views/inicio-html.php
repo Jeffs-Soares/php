@@ -15,14 +15,10 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 </head>
 
-
 <body>
-
     <header>
-
         <nav class="cabecalho">
             <a class="logo" href="/"></a>
-
             <div class="cabecalho__icones">
                 <a href="/cadastrar-video" class="cabecalho__videos"></a>
                 <a href="./pages/login.html" class="cabecalho__sair">Sair</a>

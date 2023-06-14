@@ -13,12 +13,7 @@ return [
     'GET|/atualizar-video' => VideoFormController::class,
     'POST|/atualizar-video' => EditVideoController::class,
     'GET|/deletar-video' => DeleteVideoController::class,
-
-
-
-
 ];
-
 
 
 ?>
