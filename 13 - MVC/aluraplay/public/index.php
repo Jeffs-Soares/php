@@ -3,8 +3,6 @@
 use Alura\Mvc\Controller\Error404Controller;
 use Alura\Mvc\Repository\VideoRepository;
 
-//declare(strict_types=1);
-
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -42,6 +40,6 @@ if(array_key_exists($key, $routes)){
      $controller = new Error404Controller();
 };
 
-//
+
 
 $controller -> processaRequisicao();

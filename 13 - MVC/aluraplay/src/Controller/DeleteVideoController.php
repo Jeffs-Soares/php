@@ -1,10 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Alura\Mvc\Controller;
 
-use Alura\Mvc\Entity\Video;
 use Alura\Mvc\Repository\VideoRepository;
 
 class DeleteVideoController implements Controller
