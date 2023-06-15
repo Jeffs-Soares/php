@@ -42,5 +42,6 @@ if(array_key_exists($key, $routes)){
      $controller = new Error404Controller();
 };
 
+//
 
 $controller -> processaRequisicao();
