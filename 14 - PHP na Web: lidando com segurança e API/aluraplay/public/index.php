@@ -31,10 +31,12 @@ $httpMethod =  $_SERVER['REQUEST_METHOD'];
 
 $key = "$httpMethod|$pathInfo";
 
-if(array_key_exists($key, $routes)){
 
+if(array_key_exists($key, $routes)){
+   
      $controllerClass = $routes[$key];
      $controller = new $controllerClass($videoRepository);
+    
      
 }else{
      $controller = new Error404Controller();
