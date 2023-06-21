@@ -33,7 +33,7 @@ $key = "$httpMethod|$pathInfo";
 
 if(array_key_exists($key, $routes)){
 
-     $controllerClass = $routes["$httpMethod|$pathInfo"];
+     $controllerClass = $routes[$key];
      $controller = new $controllerClass($videoRepository);
      
 }else{

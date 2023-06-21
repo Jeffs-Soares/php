@@ -4,10 +4,12 @@ $conta1 = [
     "titular" => "Jeff",
     "saldo" => 1000
 ];
+
 $conta2 = [
     "titular" => "Mari",
     "saldo" => 800
 ];
+
 $conta3 = [
     "titular" => "Ethan",
     "saldo" => 300

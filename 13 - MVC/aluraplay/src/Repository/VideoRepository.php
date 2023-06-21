@@ -52,10 +52,7 @@ class VideoRepository
 
         $videoList = $this->pdo->query("SELECT * FROM videos;")->fetchAll(\PDO::FETCH_ASSOC);
 
-        return array_map(
-            $this->hydrateVideo(...),
-            $videoList
-        );
+        return array_map( $this->hydrateVideo(...), $videoList);
 
     }
 
