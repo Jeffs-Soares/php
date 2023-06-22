@@ -10,7 +10,7 @@ use Alura\Mvc\Controller\LoginController;
 use Alura\Mvc\Controller\LogoutController;
 
 return [
-    'GET|/' => VideoListController::class,
+    'GET|/'                 => VideoListController::class,
     'GET|/cadastrar-video'  => VideoFormController::class,
     'POST|/cadastrar-video' => NewVideoController::class,
     'GET|/atualizar-video'  => VideoFormController::class,
