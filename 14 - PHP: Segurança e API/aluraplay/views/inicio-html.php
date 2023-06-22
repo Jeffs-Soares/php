@@ -20,7 +20,7 @@
             <a class="logo" href="/"></a>
             <div class="cabecalho__icones">
                 <a href="/cadastrar-video" class="cabecalho__videos"></a>
-                <a href="/login" class="cabecalho__sair">Sair</a>
+                <a href="/logout" class="cabecalho__sair">Sair</a>
             </div>
         </nav>
 
