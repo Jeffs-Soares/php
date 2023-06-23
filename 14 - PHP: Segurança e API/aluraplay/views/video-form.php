@@ -30,7 +30,6 @@ require_once __DIR__ . "/inicio-html.php"; ?>
                 type="file"
                 name="image"
                 class="campo__escrita"
-                required
                 id='image' />
 
             </div>
