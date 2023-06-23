@@ -21,12 +21,12 @@ $hash = password_hash($password, PASSWORD_ARGON2ID);
 
 $sql = "INSERT INTO users (email, password) VALUES (?, ?);";
 
-$statement = $pdo -> prepare($sql);
+$statement = $pdo->prepare($sql);
 
-$statement ->bindValue(1, $email);
-$statement ->bindValue(2, $hash);
+$statement->bindValue(1, $email);
+$statement->bindValue(2, $hash);
 
-$statement ->execute();
+$statement->execute();
 
 
 ?>

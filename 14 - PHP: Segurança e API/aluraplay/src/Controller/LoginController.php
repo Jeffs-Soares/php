@@ -1,9 +1,6 @@
-<?php 
-
+<?php
 
 namespace Alura\Mvc\Controller;
-
-
 
 class LoginController implements Controller
 {
@@ -18,7 +15,7 @@ class LoginController implements Controller
         $password = "root";
 
         try {
-            $this-> pdo = new \PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password, [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
+            $this->pdo = new \PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password, [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
         } catch (\PDOException $e) {
             die($e->getMessage());
         }
@@ -33,30 +30,24 @@ class LoginController implements Controller
 
         $sql = "SELECT * FROM users WHERE email = ?;";
 
-        $statement = $this -> pdo ->prepare($sql);
-        $statement -> bindValue(1, $email);
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(1, $email);
         $statement->execute();
-        
+
         $userData = $statement->fetch(\PDO::FETCH_ASSOC);
 
         $verify = password_verify($password, $userData['password'] ?? '');
 
-        if($verify){
+        if ($verify) {
             $_SESSION['logado'] = true;
             header('Location: /');
-        }else{
+        } else {
             header('Location: /login?sucesso=0');
         }
 
 
     }
 
-
 }
-
-
-
-
-
 
 ?>
