@@ -7,8 +7,7 @@ use Alura\Mvc\Repository\VideoRepository;
 class VideoFormController implements Controller
 {
     public function __construct(private VideoRepository $repository)
-    {
-    }
+    {}
 
     public function processaRequisicao(): void
     {
@@ -21,25 +20,7 @@ class VideoFormController implements Controller
 
         require_once __DIR__ . "/../../views/video-form.php";
 
-        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

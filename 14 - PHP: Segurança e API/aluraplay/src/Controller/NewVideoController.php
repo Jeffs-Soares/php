@@ -8,8 +8,7 @@ use Alura\Mvc\Repository\VideoRepository;
 class NewVideoController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
-    {
-    }
+    {}
     public function processaRequisicao(): void
     {
         $url = filter_input(INPUT_POST, "url", FILTER_VALIDATE_URL);
@@ -26,12 +25,6 @@ class NewVideoController implements Controller
         }
 
         $video = new Video($url, $titulo);
-        //echo "<pre>";
-        //print_r($_FILES);
-        //print_r($_FILES['image']['tmp_name']);
-        // $_FILES['image']['name'];
-        // exit();
-
 
         if($_FILES['image']['error'] === UPLOAD_ERR_OK){
             move_uploaded_file(
@@ -39,8 +32,6 @@ class NewVideoController implements Controller
                 __DIR__ . '/../../public/img/uploads/'. $_FILES['image']['name']
 
             );
-
-            
 
             $video-> setFilePath($_FILES['image']['name']);
 

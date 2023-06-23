@@ -8,8 +8,7 @@ use Alura\Mvc\Repository\VideoRepository;
 class EditVideoController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
-    {
-    }
+    {}
 
     public function processaRequisicao(): void
     {
@@ -34,7 +33,7 @@ class EditVideoController implements Controller
             return;
         }
 
-        $video = new Video($url, $titulo);  
+        $video = new Video($url, $titulo);
         $video->setId($id);
 
         if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
@@ -45,7 +44,6 @@ class EditVideoController implements Controller
             );
 
             $video->setFilePath($_FILES['image']['name']);
-
         }
 
         $success = $this->videoRepository->update($video);
@@ -56,9 +54,7 @@ class EditVideoController implements Controller
             header('Location: /?sucesso=1');
         }
     }
-        
-    }
 
-
+}
 
 ?>

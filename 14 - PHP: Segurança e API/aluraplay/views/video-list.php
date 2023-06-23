@@ -7,7 +7,7 @@ require_once __DIR__ . "/inicio-html.php";
 <ul class="videos__container" alt="videos alura">
 
     <?php foreach ($videoList as $video) { ?>
-
+        
         <li class="videos__item">
 
             <?php if ($video->getFilePath() !== null) { ?>

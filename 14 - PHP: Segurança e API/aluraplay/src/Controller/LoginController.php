@@ -45,9 +45,7 @@ class LoginController implements Controller
             header('Location: /login?sucesso=0');
         }
 
-
     }
-
 }
 
 ?>

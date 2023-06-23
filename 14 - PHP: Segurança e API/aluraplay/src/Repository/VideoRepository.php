@@ -3,7 +3,6 @@
 namespace Alura\Mvc\Repository;
 
 use Alura\Mvc\Entity\Video;
-
 class VideoRepository
 {
     public function __construct
@@ -14,7 +13,6 @@ class VideoRepository
 
     public function add(Video $video): bool
     {
-
         $sql = "INSERT INTO videos (url , title, image_path) VALUES (?, ?, ?);";
 
         $statement = $this->pdo->prepare($sql);
@@ -27,7 +25,6 @@ class VideoRepository
         $video->setId(intval($id));
 
         return $result;
-
     }
 
     public function remove(int $id): bool
@@ -35,6 +32,7 @@ class VideoRepository
         $sql = "DELETE FROM videos WHERE id=?;";
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(1, $id);
+        
         return $statement->execute();
     }
 
@@ -58,21 +56,17 @@ class VideoRepository
         $statement->bindValue(':id', $video->id, \PDO::PARAM_INT);
 
         if ($video->getFilePath() !== null) {
-
             $statement->bindValue(':image_path', $video->getFilePath());
         }
-
 
         return $statement->execute();
     }
 
     public function all(): array
     {
-
         $videoList = $this->pdo->query("SELECT * FROM videos;")->fetchAll(\PDO::FETCH_ASSOC);
 
         return array_map($this->hydrateVideo(...), $videoList);
-
     }
 
     public function find(int $id)
@@ -89,11 +83,9 @@ class VideoRepository
         $video = new Video($videoData['url'], $videoData['title']);
         $video->setId($videoData['id']);
         if ($videoData['image_path'] !== null) {
-
             $video->setFilePath($videoData['image_path']);
         }
         return $video;
     }
-
 }
 ?>
