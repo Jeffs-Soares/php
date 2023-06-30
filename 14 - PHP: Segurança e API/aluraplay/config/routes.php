@@ -21,8 +21,8 @@ return [
     'GET|/login'            => LoginFormController::class,
     'POST|/login'           => LoginController::class,
     'GET|/logout'           => LogoutController::class,
-    'GET|/videos-json'       => JsonVideoListController::class, //API ROUTE
-    'POST|/videos'       => NewJsonVideoController::class,      //API ROUTE
+    'GET|/videos-json'      => JsonVideoListController::class, //API ROUTE
+    'POST|/videos'          => NewJsonVideoController::class,  //API ROUTE
 
 ];
 
