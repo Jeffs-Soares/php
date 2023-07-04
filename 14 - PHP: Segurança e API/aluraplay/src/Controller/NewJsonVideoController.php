@@ -19,7 +19,7 @@ class NewJsonVideoController implements Controller{
         $videoData = json_decode($request, true);
         $video = new Video($videoData['url'], $videoData['title']);
         $this->videoRepository->add($video);
-
+        
         http_response_code(201);
     }
 

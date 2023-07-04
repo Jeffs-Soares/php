@@ -36,9 +36,7 @@ class LoginController implements Controller
 
         $userData = $statement->fetch(\PDO::FETCH_ASSOC);
         $correctPassword = password_verify($password, $userData['password'] ?? '');
-
         
-
         if ($correctPassword) {
 
             if (password_needs_rehash($userData['password'], PASSWORD_ARGON2ID)) {
