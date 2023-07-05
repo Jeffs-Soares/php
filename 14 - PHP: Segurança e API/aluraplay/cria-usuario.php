@@ -12,7 +12,6 @@ try {
     die($e->getMessage());
 }
 
-
 $email = $argv[1];
 $password = $argv[2];
 

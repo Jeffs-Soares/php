@@ -38,7 +38,6 @@ require_once __DIR__ . "/inicio-html.php";
 
     <?php } ?>
 
-
 </ul>
 
 <?php require_once __DIR__ . "/fim-html.php";
