@@ -9,7 +9,6 @@ class DeleteVideoController implements Controller
     public function __construct(private VideoRepository $videoRepository)
     {
     }
-
     public function processaRequisicao(): void
     {
 
@@ -25,7 +24,6 @@ class DeleteVideoController implements Controller
         } else {
             header('Location: /?sucesso=1');
         }
-
 
     }
 
