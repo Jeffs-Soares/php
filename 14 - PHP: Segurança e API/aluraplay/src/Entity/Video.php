@@ -8,7 +8,6 @@ class Video
     public readonly string $url;
     private ?string $filePath = null;
 
-
     public function __construct(
         string $url,
         public readonly string $title,
