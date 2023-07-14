@@ -33,7 +33,7 @@ class LoginController implements Controller
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(1, $email);
         $statement->execute();
-
+        
         $userData = $statement->fetch(\PDO::FETCH_ASSOC);
         $correctPassword = password_verify($password, $userData['password'] ?? '');
         
