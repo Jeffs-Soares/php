@@ -7,8 +7,8 @@ $array = [
 ];
 
 
-foreach($array as $chave => $num){
-    echo $chave. ' ' . $num . PHP_EOL;
+foreach($array as $chave => $valor){
+    echo $chave. ' ' . $valor . PHP_EOL;
 }
 
 echo count($array);
