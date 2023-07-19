@@ -18,8 +18,8 @@ class VideoFormController extends ControllerWithHtml implements Controller
             $video = $this->repository->find($id);
         }
 
-        //require_once __DIR__ . "/../../views/video-form.php";
-        $this->renderTemplate('video-form', [
+       
+        echo $this->renderTemplate('video-form', [
             'video' => $video,
         ]);
 
