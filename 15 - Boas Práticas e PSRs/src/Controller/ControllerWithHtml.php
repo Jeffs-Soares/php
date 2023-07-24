@@ -14,6 +14,7 @@ abstract class ControllerWithHtml implements Controller
        
        require_once self::TEMPLATE_PATH . $template . '.php';
        return ob_get_clean();
+       
     }
 
 }
