@@ -25,6 +25,4 @@ class JsonVideoListController implements Controller{
 
 }
 
-
-
 ?>
