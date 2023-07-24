@@ -23,8 +23,6 @@ class JsonVideoListController implements Controller{
         echo json_encode($videoList);
     }
 
-
-
 }
 
 
