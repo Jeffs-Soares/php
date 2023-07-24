@@ -27,5 +27,4 @@ $statement->bindValue(2, $hash);
 
 $statement->execute();
 
-
 ?>
