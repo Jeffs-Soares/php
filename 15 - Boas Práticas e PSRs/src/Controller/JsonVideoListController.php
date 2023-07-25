@@ -10,7 +10,6 @@ class JsonVideoListController implements Controller{
 
     public function __construct(private VideoRepository $videoRepository)
     {}       
-    
     public function processaRequisicao(): void
     {
         $videoList = array_map(function (Video $video): array{
