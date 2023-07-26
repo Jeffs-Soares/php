@@ -5,18 +5,16 @@ namespace Alura\Mvc\Helper;
 trait HtmlRendererTrait
 {
 
-    
-    private function renderTemplate(string $template, array $context = []): string
+    private const TEMPLATE_PATH = __DIR__ . "/../../views/";
+    protected function renderTemplate(string $template, array $context = []): string
     {
-
-        $templatePath = __DIR__ . "/../../views/";
 
         /* Context pode ser vazio */
         extract($context);
 
         ob_start();
 
-        require_once $templatePath. $template . '.php';
+        require_once self::TEMPLATE_PATH . $template . '.php';
         return ob_get_clean();
     }
 }
