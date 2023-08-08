@@ -15,6 +15,7 @@ trait HtmlRendererTrait
         ob_start();
 
         require_once self::TEMPLATE_PATH . $template . '.php';
+        
         return ob_get_clean();
     }
 }
