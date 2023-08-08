@@ -6,11 +6,9 @@ class LogoutController implements Controller
 {
     public function processaRequisicao(): void
     {
-        //session_destroy();
         unset($_SESSION['logado']);
         header('Location: /login');
     }
 }
-
 
 ?>

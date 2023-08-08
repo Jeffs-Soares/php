@@ -9,8 +9,7 @@ use Alura\Mvc\Repository\VideoRepository;
 class NewVideoController implements Controller
 {
     use FlashMessageTrait;
-    public function __construct(private VideoRepository $videoRepository)
-    {}
+    public function __construct(private VideoRepository $videoRepository){}
     public function processaRequisicao(): void
     {
         $url = filter_input(INPUT_POST, "url", FILTER_VALIDATE_URL);
@@ -64,6 +63,5 @@ class NewVideoController implements Controller
     }
 
 }
-
 
 ?>

@@ -7,8 +7,7 @@ use Alura\Mvc\Repository\VideoRepository;
 
 class EditVideoController implements Controller
 {
-    public function __construct(private VideoRepository $videoRepository)
-    {}
+    public function __construct(private VideoRepository $videoRepository){}
 
     public function processaRequisicao(): void
     {

@@ -7,11 +7,7 @@ use Alura\Mvc\Repository\VideoRepository;
 
 class NewJsonVideoController implements Controller{
 
-    public function __construct(private VideoRepository $videoRepository)
-    {
-
-    }
-
+    public function __construct(private VideoRepository $videoRepository){}
 
     public function processaRequisicao(): void
     {
@@ -23,10 +19,6 @@ class NewJsonVideoController implements Controller{
         http_response_code(201);
     }
 
-
-
 }
-
-
 
 ?>

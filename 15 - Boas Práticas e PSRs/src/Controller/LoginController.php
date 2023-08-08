@@ -1,6 +1,7 @@
 <?php
 
 namespace Alura\Mvc\Controller;
+
 use Alura\Mvc\Helper\FlashMessageTrait;
 
 class LoginController implements Controller
@@ -52,8 +53,7 @@ class LoginController implements Controller
             $_SESSION['logado'] = true;
             header('Location: /');
         } else {
-
-            //$_SESSION['error_message'] = 'Usuário e/ou senha inválidos.';
+            
             $this->addErrorMessage('Usuário e/ou senha inválidos.');
             header('Location: /login');
         }

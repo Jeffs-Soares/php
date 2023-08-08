@@ -17,5 +17,4 @@ class LoginFormController implements Controller
     }
 }
 
-
 ?>
