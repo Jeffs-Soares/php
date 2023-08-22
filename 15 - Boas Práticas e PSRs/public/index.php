@@ -29,7 +29,7 @@ $key = "$httpMethod|$pathInfo";
 if (array_key_exists($key, $routes)) {
 
      $controllerClass = $routes[$key];
-     $controller = new $controllerClass($videoRepository);
+     $controller = new $controllerClass($videoRepository);     
 
 } else {
      $controller = new Error404Controller();

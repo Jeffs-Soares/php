@@ -52,7 +52,6 @@ class EditVideoController implements Controller
                 $video->setFilePath($safeFileName);
 
             }
-
         }
 
         $success = $this->videoRepository->update($video);
