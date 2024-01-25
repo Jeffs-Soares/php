@@ -17,7 +17,7 @@ class DeleteVideoController implements Controller
     {
     }
     public function processaRequisicao(ServerRequestInterface $request): ResponseInterface
-    {
+    { 
         $queryParams = $request->getQueryParams();
 
         $id = filter_var($queryParams['id'], FILTER_VALIDATE_INT);

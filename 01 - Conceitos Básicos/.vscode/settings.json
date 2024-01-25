@@ -1,0 +1,6 @@
+{
+    "workbench.colorCustomizations": {
+        // will change the color of three dots to red
+        "editorHint.foreground": "#f000"
+    }
+}

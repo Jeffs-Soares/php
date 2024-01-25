@@ -4,18 +4,25 @@ namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\Entity\Video;
 use Alura\Mvc\Repository\VideoRepository;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class EditVideoController implements Controller
 {
     public function __construct(private VideoRepository $videoRepository){}
 
-    public function processaRequisicao(): void
+    public function processaRequisicao(ServerRequestInterface $request): ResponseInterface
     {
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $queryParams = $request ->getQueryParams();
+
+        $id = filter_var($queryParams['id'], FILTER_VALIDATE_INT);
 
         if ($id === false || $id === null) {
             header('Location: /?sucesso=0');
-            return;
+            return new Response(302, [
+                
+            ]);
         }
 
         $url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL);
